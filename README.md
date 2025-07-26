@@ -13,7 +13,8 @@ GenManga AI is an intuitive web app that lets anyone generate their own manga pa
 
 ## 🖼️ Demo
 
-> _Add screenshots or gifs of your app and generated panels here!_
+> _![WhatsApp Image 2025-07-18 at 13 16 37_beb87428](https://github.com/user-attachments/assets/f98cdddc-20c1-42ef-a459-857e82eb7ff4)
+_
 
 ## 🛠️ Quick Start
 
