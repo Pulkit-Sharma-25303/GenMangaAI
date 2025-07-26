@@ -1,95 +1,137 @@
 # GenManga AI: Manga Generator
-GenManga AI is a user-friendly web app that lets anyone create their own manga panels using cutting-edge AI. Built from a passion for both manga and artificial intelligence, this tool empowers storytellers, artists, and fans to rapidly generate professional manga imagery, maintain character consistency, add speech bubbles, and assemble complete pages—all without the need for coding or design experience.
 
-Features
-Text-to-Manga Panel Generation: Describe a scene in plain language and let the AI create stunning manga panels.
+GenManga AI is an intuitive web app that lets anyone generate their own manga panels using the power of artificial intelligence! Born from a love of manga and a fascination with AI, this project helps you bring original stories and characters to life—no drawing skills required.
 
-Character Consistency: Keep your characters visually consistent across scenes and expressions.
+## 🚀 Features
 
-Speech Bubble Integration: Add custom dialogue to panels with flexible bubble placement.
+- **Text-to-Manga Panel Generation**: Describe a scene, and GenManga AI draws it for you.
+- **Character Consistency**: Keep your main character’s look stable across panels.
+- **Speech Bubbles**: Add dialogue wherever you want.
+- **Manga Page Collage**: Arrange panels into full manga pages, export and share.
+- **Easy-to-Use Interface**: Powered by Streamlit, ready to use in your browser.
 
-Collage Builder: Arrange multiple panels into fully composed manga pages with a single click.
 
-Intuitive Streamlit Interface: Easy-to-use, visually appealing UI—no coding required.
+## 🖼️ Demo
 
-Demo
-Coming Soon! (Or add screenshots of your interface and generated panels here)
+> _Add screenshots or gifs of your app and generated panels here!_
 
-Quick Start
-1. Clone This Repository
-bash
+## 🛠️ Quick Start
+
+### 1. Clone the repo
+
+```bash
 git clone https://github.com/yourusername/genmanga-ai.git
 cd genmanga-ai
-2. Set Up Environment
-It's recommended to use a virtual environment: bash python -m venv genmanga_env source genmanga_env/bin/activate  # or .\genmanga_env\Scripts\activate on Windows
-3. Install Requirements
+```
+
+
+### 2. Set up and activate a virtual environment _(recommended)_
+
+```bash
+python -m venv genmanga_env
+source genmanga_env/bin/activate       # On Windows: .\genmanga_env\Scripts\activate
+```
+
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-4. Download or Prepare Your Model
-Fine-tune or download your preferred Stable Diffusion model and place it in the genmanga_model directory within your project folder.
-See instructions below on using Google Colab for fast model preparation.
-5. Run the App
+```
+
+
+### 4. Add or Download Your Model
+
+- Download or fine-tune your Stable Diffusion model (see instructions below).
+- Place the resulting `genmanga_model` folder in your project directory.
+
+
+### 5. Run GenManga AI!
+
+```bash
 streamlit run manga_generator_app.py
-How It Works
-GenManga AI leverages:
-Stable Diffusion (via HuggingFace Diffusers) for panel generation
-CLIP for character consistency detection
-Streamlit for the frontend web app
-PIL (Pillow) for image manipulation and speech bubbles
-Model caching and local loading for fast startup
-You can generate panels by simply entering a prompt, style, and character details, then assemble your story visually.
-Prepare Your Model in Google Colab
-To avoid slow model downloads at runtime, train or fine-tune your model in Google Colab and export it:
-Open a Colab notebook.
-Install dependencies:
+```
+
+
+## ⚡ Making Model Loading Fast (with Google Colab)
+
+1. **Run this in Google Colab to prepare your model:**
+
+```python
 !pip install diffusers transformers accelerate safetensors
-Load (and optionally fine-tune) your model, then save it to Google Drive:
+
 from diffusers import StableDiffusionPipeline
 import torch
 from google.colab import drive
-drive.mount("/content/drive")
+drive.mount('/content/drive')
 model_id = "CompVis/stable-diffusion-v1-4"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16).to("cuda")
 pipe.save_pretrained("/content/drive/MyDrive/genmanga_model")
-Download the genmanga_model directory from Google Drive and place it in your local project folder.
+```
 
-Project Structure
+2. **Download the `genmanga_model` folder from your Google Drive.**
+3. **Copy it into your project directory (should look like below):**
+
+```
 genmanga-ai/
-├── genmanga_model/           # Place your trained model here
-├── manga_generator_app.py    # Streamlit app code
+├── genmanga_model/
+│   ├── model_index.json
+│   ├── config.json
+│   ├── pytorch_model.bin
+│   └── ...
+├── manga_generator_app.py
 ├── requirements.txt
-├── README.md
+└── README.md
+```
 
-Requirements
-Python 3.8+
-Streamlit
-diffusers
-torch
-transformers
-pillow
-safetensors
-accelerate
-All are included in the requirements.txt.
 
-Sample Usage
-Enter your character description, manga style, expression, and scene prompt.
-Click "Generate Panel" to see the image.
-Add speech bubbles with custom dialogue.
-Create a collage to visualize a manga page.
-Download your creations to share or print.
+## 🧩 Dependencies
 
-Troubleshooting
-Models loading slowly? Train and save your model via Google Colab or ensure your local system uses SSD storage.
-Memory errors? Use lower resolution or ensure you have at least 16GB RAM; for heavy use, 32GB is recommended.
-"File not found": Ensure you've placed genmanga_model in the correct location and all model files are present.
+Main requirements (see `requirements.txt`):
 
-Author
-Built by Pulkit Sharma, inspired by a lifelong love of manga and a passion for creative AI.
+- Python 3.8+
+- streamlit
+- diffusers
+- torch
+- transformers
+- pillow
+- safetensors
+- accelerate
 
-License
-This project is open source under the MIT License.
 
-Acknowledgements
-Stable Diffusion
-Hugging Face Diffusers
-Streamlit
-Thanks to the global AI and manga creator community!
+## ✨ Usage Overview
+
+1. Describe your character, select style \& expression, and enter scene prompts.
+2. Click **Generate Panel** to create manga art.
+3. Add speech bubbles for dialogue.
+4. Arrange panels with the collage builder.
+5. Download and share your manga!
+
+## 🐛 Troubleshooting
+
+- **Slow model loading?**
+Use the Google Colab steps above and store models on a fast SSD.
+- **Not enough RAM?**
+Lower the resolution or number of inference steps. For best results, use 16GB+ RAM (32GB for large models).
+- **File not found/model errors?**
+Ensure the `genmanga_model` folder is present and contains all the required files.
+
+
+## 👤 Author
+
+Created by Pulkit Sharma – manga lover, AI enthusiast, and builder at heart.
+
+## 📄 License
+
+MIT License
+
+## 🙏 Acknowledgments
+
+- [Stable Diffusion (CompVis)](https://huggingface.co/CompVis/stable-diffusion)
+- [Diffusers (Hugging Face)](https://github.com/huggingface/diffusers)
+- [Streamlit](https://streamlit.io/)
+- Manga \& Open Source AI communities worldwide!
+
+\#Manga \#AI \#StableDiffusion \#Streamlit \#Python \#GenerativeArt \#OpenSource
+
+
