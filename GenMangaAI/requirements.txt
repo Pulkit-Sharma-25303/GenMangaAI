@@ -5,8 +5,8 @@ streamlit>=1.32.0
 
 # AI/ML Libraries
 torch>=1.7.0
-diffusers>=0.13.0
-transformers>=4.19.2
+diffusers
+transformers
 
 # Image Processing
 Pillow>=8.0.0
@@ -14,9 +14,9 @@ opencv-python>=4.5.0
 numpy>=1.19.0
 
 # CLIP Model Dependencies
-clip-by-openai>=1.0
-ftfy>=6.1.1
-regex>=2022.1.18
+clip-by-openai
+ftfy
+regex
 
 # Additional Utilities
 scipy>=1.7.0
